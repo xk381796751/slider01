@@ -24,22 +24,9 @@
 			transition: transform 0.5s;
 		}
 
-		.images>div {
+		.images>img {
 			width: 400px;
-			height: 300px;
-			line-height: 300px;
-			text-align: center;
-			background: yellow;
-			font-size: 28px;
-			color: black;
-		}
-
-		.images .green {
-			background: green;
-		}
-
-		.images .red {
-			background: red;
+			height: 600px;
 		}
 
 		.btns {
@@ -55,9 +42,9 @@
 <body>
 	<div class="window">
 		<div class="images">
-			<div class="yellow">1</div>
-			<div class="green">2</div>
-			<div class="red">3</div>
+			<img src="./11.jpg" alt="">
+			<img src="./22.jpg" alt="">
+			<img src="./33.jpg" alt="">
 		</div>
 	</div>
 	<div class="btns">
@@ -78,37 +65,13 @@
 				$('.images').css({
 					transform: 'transLateX(' + p + 'px)'
 				})
-				n = index
-				activeButton(allButtons.eq(n))
+				// n = index
+				activeButton(allButtons.eq(index))
 			})
 		}
 
-
-		var n = 0;
-		var size = allButtons.length
-		playSlide(n % size)
-		var timeId = timer()
-
-		$('.window').on('mouseenter', function () {
-			window.clearInterval(timeId)
-		})
-		$('.window').on('mouseleave', function () {
-			timeId = timer()
-		})
-
 		function activeButton($button) {
 			$button.addClass('active').siblings('.active').removeClass('active')
-		}
-
-		function playSlide(index) {
-			allButtons.eq(index).trigger('click')
-		}
-
-		function timer() {
-			return setInterval(() => {
-				n += 1
-				playSlide(n % size)
-			}, 3000)
 		}
 
 	</script>
